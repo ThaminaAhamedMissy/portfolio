@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thamina Ahamed Missy — Senior QA Engineer</title>
+<style>
+  :root{
+    --bg:#0a0e16;
+    --bg-soft:#0f1420;
+    --ink:#f3f6fb;
+    --ink-dim:#9aa6b8;
+    --line:#1f2733;
+    --teal:#22d3c5;
+    --blue:#3b82f6;
+    --grad: linear-gradient(100deg, #7ee8df 0%, #22d3c5 35%, #3b82f6 100%);
+    --sans:'Sora','Inter',-apple-system,sans-serif;
+    --mono:'JetBrains Mono','Courier New',monospace;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',var(--sans);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px;}
+
+  /* background texture */
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(circle at 80% 15%, rgba(34,211,197,0.10), transparent 45%),
+      radial-gradient(circle at 10% 80%, rgba(59,130,246,0.08), transparent 50%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,14,22,0.75);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:20px 40px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--sans);font-weight:800;font-size:18px;letter-spacing:0.01em;
+  }
+  .logo span{color:var(--teal);}
+  nav ul{display:flex;gap:6px;align-items:center;}
+  nav a{
+    font-size:14px;font-weight:500;color:var(--ink-dim);
+    padding:9px 18px;border-radius:20px;
+    transition:all .18s ease;
+  }
+  nav a.active{background:rgba(34,211,197,0.12);color:var(--teal);}
+  nav a:hover:not(.active){color:var(--ink);}
+  .resume-btn{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;letter-spacing:0.03em;
+    padding:11px 20px;border-radius:8px;
+    background:var(--ink);color:var(--bg);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .resume-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(34,211,197,0.18);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;z-index:1;
+    padding:90px 0 60px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:20px;
+    align-items:center;
+    min-height:640px;
+  }
+  .eyebrow{
+    font-size:16px;font-weight:600;color:var(--teal);margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:28px;height:1.5px;background:var(--teal);display:inline-block;}
+  h1{
+    font-family:var(--sans);font-weight:800;
+    font-size:clamp(40px,6.2vw,76px);
+    line-height:1.02;letter-spacing:-0.01em;
+    margin-bottom:22px;
+    background:var(--grad);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .role-line{
+    font-family:var(--sans);font-weight:600;font-size:22px;color:var(--ink);
+    margin-bottom:16px;
+  }
+  .hero-sub{
+    font-size:16px;color:var(--ink-dim);max-width:480px;margin-bottom:34px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-size:14px;font-weight:600;padding:14px 26px;border-radius:8px;
+    transition:all .18s ease;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{
+    background:var(--grad);color:#04201d;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(34,211,197,0.25);}
+  .btn-ghost{
+    border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,0.02);
+  }
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+
+  .portrait{
+    position:relative;
+    display:flex;justify-content:center;align-items:center;
+  }
+  .portrait .ring{
+    position:absolute;
+    width:380px;height:380px;
+    border-radius:50%;
+    border:1px solid rgba(34,211,197,0.25);
+  }
+  .portrait .ring.r2{width:460px;height:460px;border-color:rgba(59,130,246,0.15);}
+  .portrait .glow{
+    position:absolute;
+    width:320px;height:320px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(34,211,197,0.35), transparent 70%);
+    filter:blur(10px);
+  }
+  .portrait img{
+    position:relative;z-index:2;
+    width:300px;height:300px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid var(--bg-soft);
+    box-shadow:0 0 0 1px rgba(34,211,197,0.4), 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .badge{
+    position:absolute;
+    bottom:14px;right:6px;
+    z-index:3;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:8px 14px;
+    font-size:12px;font-weight:600;
+    display:flex;align-items:center;gap:7px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,0.2);}
+
+  /* ---------- Section shell ---------- */
+  .section{
+    position:relative;z-index:1;
+    padding:80px 0;
+    border-top:1px solid var(--line);
+  }
+  .section-tag{
+    font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:12px;
+  }
+  .section-title{
+    font-family:var(--sans);font-weight:700;font-size:32px;margin-bottom:44px;
+  }
+
+  /* ---------- About / stats ---------- */
+  .about-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:start;
+  }
+  .about-grid p{color:var(--ink-dim);font-size:15.5px;margin-bottom:16px;}
+  .about-grid p strong{color:var(--ink);}
+  .stat-card{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:24px;
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    transition:border-color .2s ease;
+  }
+  .stat-card:hover{border-color:rgba(34,211,197,0.35);}
+  .stat-card .num{
+    font-family:var(--sans);font-weight:800;font-size:30px;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+    min-width:64px;
+  }
+  .stat-card .label{font-size:13.5px;color:var(--ink-dim);line-height:1.4;}
+
+  /* ---------- Experience timeline ---------- */
+  .timeline{position:relative;padding-left:32px;}
+  .timeline::before{
+    content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1.5px;
+    background:linear-gradient(to bottom, var(--teal), transparent);
+  }
+  .t-item{position:relative;padding-bottom:46px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:'';position:absolute;left:-32px;top:4px;
+    width:11px;height:11px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--teal);
+  }
+  .t-period{font-family:var(--mono);font-size:12.5px;color:var(--teal);margin-bottom:6px;}
+  .t-title{font-size:18px;font-weight:700;margin-bottom:2px;}
+  .t-company{font-size:14px;color:var(--ink-dim);margin-bottom:14px;}
+  .t-item ul{color:var(--ink-dim);font-size:14.5px;}
+  .t-item li{position:relative;padding-left:18px;margin-bottom:9px;}
+  .t-item li::before{content:'▸';position:absolute;left:0;color:var(--teal);font-size:12px;top:1px;}
+
+  /* ---------- Skills ---------- */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .skill-card{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:26px;
+  }
+  .skill-card h3{
+    font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:16px;
+  }
+  .pill-row{display:flex;flex-wrap:wrap;gap:9px;}
+  .pill{
+    font-size:12.5px;font-weight:500;padding:7px 13px;border-radius:20px;
+    background:rgba(34,211,197,0.08);border:1px solid rgba(34,211,197,0.18);
+    color:#bdf5ef;
+  }
+
+  /* ---------- Education / Awards ---------- */
+  .ea-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .ea-card{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:28px;
+  }
+  .ea-card h3{
+    font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:18px;
+  }
+  .ea-card .item{margin-bottom:16px;}
+  .ea-card .item:last-child{margin-bottom:0;}
+  .ea-card .t1{font-weight:600;font-size:15px;margin-bottom:3px;}
+  .ea-card .t2{font-size:13.5px;color:var(--ink-dim);}
+
+  /* ---------- Contact ---------- */
+  .contact-box{
+    background:linear-gradient(135deg, rgba(34,211,197,0.10), rgba(59,130,246,0.06));
+    border:1px solid rgba(34,211,197,0.25);
+    border-radius:20px;
+    padding:64px 48px;
+    text-align:center;
+  }
+  .contact-box h2{
+    font-family:var(--sans);font-weight:700;font-size:34px;margin-bottom:14px;
+  }
+  .contact-box p{color:var(--ink-dim);margin-bottom:32px;font-size:15.5px;}
+  .contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 0;text-align:center;
+    font-size:12px;color:var(--ink-dim);
+    font-family:var(--mono);
+    position:relative;z-index:1;
+  }
+
+  @media (max-width:860px){
+    .wrap{padding:0 22px;}
+    .nav-inner{padding:16px 22px;}
+    nav ul{display:none;}
+    .hero{grid-template-columns:1fr;text-align:left;padding-top:50px;min-height:auto;}
+    .portrait{margin-top:20px;order:-1;}
+    .portrait img{width:220px;height:220px;}
+    .portrait .ring{width:280px;height:280px;}
+    .portrait .ring.r2{width:330px;height:330px;}
+    .about-grid{grid-template-columns:1fr;}
+    .skill-grid{grid-template-columns:1fr;}
+    .ea-grid{grid-template-columns:1fr;}
+    .contact-box{padding:44px 24px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo">THAMINA<span>.QA</span></div>
+    <nav>
+      <ul>
+        <li><a href="#top" class="active">Home</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="resume-btn">GET IN TOUCH ↗</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" id="top">
+    <div>
+      <div class="eyebrow">Hello! I am</div>
+      <h1>THAMINA<br>AHAMED</h1>
+      <div class="role-line">Senior QA Engineer</div>
+      <p class="hero-sub">4+ years finding what breaks before your users do — manual, regression, API and SQL testing for remote teams across Lithuania and Canada.</p>
+      <div class="hero-actions">
+        <a href="#experience" class="btn btn-primary">View My Work</a>
+        <a href="mailto:thamina.ahamed@gmail.com" class="btn btn-ghost">Contact Me</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="ring r2"></div>
+      <div class="ring"></div>
+      <div class="glow"></div>
+      <img src="profile.png" alt="Portrait of Thamina Ahamed Missy">
+      <div class="badge"><span class="dot"></span>Open to remote roles</div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-tag">01 / About</div>
+    <h2 class="section-title">Built for catching what others miss</h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm a <strong>Senior QA Engineer</strong> with four-plus years of fully remote experience testing web and mobile applications for international teams. My focus is <strong>manual, functional, regression and exploratory testing</strong>, backed by hands-on API testing and SQL validation.</p>
+        <p>I've also tested AI-generated outputs on AI-powered SaaS products — checking accuracy and quality where the "correct answer" isn't always obvious. Async, cross-timezone collaboration with distributed teams is second nature to me.</p>
+      </div>
+      <div>
+        <div class="stat-card"><div class="num">4+</div><div class="label">Years of remote QA experience</div></div>
+        <div class="stat-card"><div class="num">58+</div><div class="label">Releases validated before deployment</div></div>
+        <div class="stat-card"><div class="num">2×</div><div class="label">Top Performer Award at Smedia</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="section-tag">02 / Experience</div>
+    <h2 class="section-title">Where I've worked</h2>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-period">Aug 2025 — Present</div>
+        <div class="t-title">Senior QA Engineer</div>
+        <div class="t-company">Netzet · Remote, Lithuania</div>
+        <ul>
+          <li>Ran manual smoke, regression, functional and exploratory testing across 18+ releases.</li>
+          <li>Logged 10+ defects per sprint in Jira with clear repro steps, cutting critical issues reaching production.</li>
+          <li>Tested 25+ API endpoints in Postman and validated back-end data with SQL.</li>
+          <li>Validated AI-generated outputs on an AI-powered SaaS product for accuracy and quality.</li>
+        </ul>
+      </div>
+      <div class="t-item">
+        <div class="t-period">Jan 2022 — Sep 2024</div>
+        <div class="t-title">QA Engineer</div>
+        <div class="t-company">Smedia · Remote, Canada</div>
+        <ul>
+          <li>Tested 10+ web projects for functionality, usability, UI consistency and data quality.</li>
+          <li>Covered regression, integration, performance and compatibility testing across 40+ releases.</li>
+          <li>Found and resolved 50+ cross-browser/device issues using BrowserStack.</li>
+          <li>Checked UI builds against Figma for pixel-accurate, responsive results.</li>
+        </ul>
+      </div>
+      <div class="t-item">
+        <div class="t-period">May 2018 — Dec 2021</div>
+        <div class="t-title">Support Engineer</div>
+        <div class="t-company">Smedia · Remote, Canada</div>
+        <ul>
+          <li>Handled technical support and troubleshooting, keeping client satisfaction high.</li>
+          <li>Set up Google Tag Manager tracking to sharpen client-side reporting accuracy.</li>
+          <li>Configured tracking pixels for Google and Facebook Ads campaigns.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-tag">03 / Skills</div>
+    <h2 class="section-title">Toolkit</h2>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <h3>Testing</h3>
+        <div class="pill-row">
+          <span class="pill">Manual Testing</span>
+          <span class="pill">Regression</span>
+          <span class="pill">Functional</span>
+          <span class="pill">Exploratory</span>
+          <span class="pill">Smoke / Sanity</span>
+          <span class="pill">UAT</span>
+          <span class="pill">Mobile Testing</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>API &amp; Data</h3>
+        <div class="pill-row">
+          <span class="pill">Postman</span>
+          <span class="pill">JSON</span>
+          <span class="pill">Status Codes</span>
+          <span class="pill">CRUD</span>
+          <span class="pill">SQL (basic)</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="pill-row">
+          <span class="pill">Jira</span>
+          <span class="pill">BrowserStack</span>
+          <span class="pill">Figma</span>
+          <span class="pill">Chrome DevTools</span>
+          <span class="pill">Confluence</span>
+          <span class="pill">Slack</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Process</h3>
+        <div class="pill-row">
+          <span class="pill">Agile / SDLC</span>
+          <span class="pill">Test Plans</span>
+          <span class="pill">Defect Reporting</span>
+          <span class="pill">Traceability Matrix</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="section-tag">04 / Background</div>
+    <h2 class="section-title">Education &amp; Awards</h2>
+    <div class="ea-grid">
+      <div class="ea-card">
+        <h3>Education</h3>
+        <div class="item">
+          <div class="t1">BSc in Computer Science</div>
+          <div class="t2">American International University–Bangladesh (AIUB), 2014–2018</div>
+        </div>
+        <div class="item">
+          <div class="t1">English — Duolingo English Test</div>
+          <div class="t2">Score: 120 (Advanced Proficiency)</div>
+        </div>
+      </div>
+      <div class="ea-card">
+        <h3>Awards</h3>
+        <div class="item">
+          <div class="t1">Top Performer Award (×2)</div>
+          <div class="t2">Smedia — recognized for reliability and consistent contribution to team success.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="contact-box">
+      <h2>Let's work together</h2>
+      <p>Open to remote QA roles and contract testing work.</p>
+      <div class="contact-links">
+        <a href="mailto:thamina.ahamed@gmail.com" class="btn btn-primary">thamina.ahamed@gmail.com</a>
+        <a href="tel:+8801963676778" class="btn btn-ghost">+88 01963676778</a>
+        <a href="https://www.linkedin.com/in/thamina-ahamed-missy/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>© 2026 Thamina Ahamed Missy — Dhaka, Bangladesh</footer>
+
+</body>
+</html>
