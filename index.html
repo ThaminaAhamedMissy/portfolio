@@ -59,9 +59,17 @@
     display:flex;align-items:center;justify-content:space-between;
   }
   .logo{
-    font-family:var(--sans);font-weight:800;font-size:18px;letter-spacing:0.01em;
+    font-family:var(--sans);font-weight:800;font-size:17px;letter-spacing:0.01em;
+    display:flex;align-items:center;gap:10px;
   }
-  .logo span{color:var(--teal);}
+  .logo .mark{
+    width:34px;height:34px;border-radius:9px;
+    background:var(--grad);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--sans);font-weight:800;font-size:14px;color:#04201d;
+  }
+  .logo .name{display:flex;flex-direction:column;line-height:1.05;}
+  .logo .name small{font-family:var(--mono);font-weight:500;font-size:10px;letter-spacing:0.1em;color:var(--ink-dim);}
   nav ul{display:flex;gap:6px;align-items:center;}
   nav a{
     font-size:14px;font-weight:500;color:var(--ink-dim);
@@ -96,7 +104,7 @@
   .eyebrow::before{content:'';width:28px;height:1.5px;background:var(--teal);display:inline-block;}
   h1{
     font-family:var(--sans);font-weight:800;
-    font-size:clamp(40px,6.2vw,76px);
+    font-size:clamp(34px,5.4vw,64px);
     line-height:1.02;letter-spacing:-0.01em;
     margin-bottom:22px;
     background:var(--grad);
@@ -266,6 +274,19 @@
   .contact-box p{color:var(--ink-dim);margin-bottom:32px;font-size:15.5px;}
   .contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
 
+  .work-box{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .work-box p{color:var(--ink-dim);font-size:15.5px;max-width:480px;margin:0;}
+
   footer{
     border-top:1px solid var(--line);
     padding:28px 0;text-align:center;
@@ -278,6 +299,7 @@
     .wrap{padding:0 22px;}
     .nav-inner{padding:16px 22px;}
     nav ul{display:none;}
+    .logo .name{display:none;}
     .hero{grid-template-columns:1fr;text-align:left;padding-top:50px;min-height:auto;}
     .portrait{margin-top:20px;order:-1;}
     .portrait img{width:220px;height:220px;}
@@ -285,8 +307,10 @@
     .portrait .ring.r2{width:330px;height:330px;}
     .about-grid{grid-template-columns:1fr;}
     .skill-grid{grid-template-columns:1fr;}
+    .skill-card[style]{grid-column:auto;}
     .ea-grid{grid-template-columns:1fr;}
     .contact-box{padding:44px 24px;}
+    .work-box{padding:28px;flex-direction:column;align-items:flex-start;}
   }
 
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
@@ -296,11 +320,15 @@
 
 <header>
   <div class="nav-inner">
-    <div class="logo">THAMINA<span>.QA</span></div>
+    <div class="logo">
+      <div class="mark">TM</div>
+      <div class="name">Thamina Ahamed Missy<small>SENIOR QA ENGINEER</small></div>
+    </div>
     <nav>
       <ul>
         <li><a href="#top" class="active">Home</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Work</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -314,11 +342,11 @@
   <section class="hero" id="top">
     <div>
       <div class="eyebrow">Hello! I am</div>
-      <h1>THAMINA<br>AHAMED</h1>
+      <h1>THAMINA AHAMED<br>MISSY</h1>
       <div class="role-line">Senior QA Engineer</div>
-      <p class="hero-sub">4+ years finding what breaks before your users do — manual, regression, API and SQL testing for remote teams across Lithuania and Canada.</p>
+      <p class="hero-sub">Senior QA Engineer with 4+ years of remote experience testing web and mobile products for teams across Lithuania and Canada — specializing in manual, regression, and API testing with a sharp eye for detail.</p>
       <div class="hero-actions">
-        <a href="#experience" class="btn btn-primary">View My Work</a>
+        <a href="https://drive.google.com/drive/folders/1ZMqw1mO64RNywY728pUViN1euc0C_e0P?usp=drive_link" target="_blank" class="btn btn-primary">Show My Work</a>
         <a href="resume.pdf" download class="btn btn-ghost">Download Resume ⬇</a>
       </div>
     </div>
@@ -336,7 +364,7 @@
     <h2 class="section-title">Built for catching what others miss</h2>
     <div class="about-grid">
       <div>
-        <p>I'm a <strong>Senior QA Engineer</strong> with four-plus years of fully remote experience testing web and mobile applications for international teams. My focus is <strong>manual, functional, regression and exploratory testing</strong>, backed by hands-on API testing and SQL validation.</p>
+        <p>I'm a <strong>Senior QA Engineer</strong> with four-plus years of fully remote experience testing web and mobile applications for international teams. My focus is <strong>manual, functional, regression and exploratory testing</strong>, backed by hands-on API testing and basic SQL validation (SELECT, INSERT, UPDATE, DELETE).</p>
         <p>I've also tested AI-generated outputs on AI-powered SaaS products — checking accuracy and quality where the "correct answer" isn't always obvious. Async, cross-timezone collaboration with distributed teams is second nature to me.</p>
       </div>
       <div>
@@ -358,8 +386,11 @@
         <ul>
           <li>Ran manual smoke, regression, functional and exploratory testing across 18+ releases.</li>
           <li>Logged 10+ defects per sprint in Jira with clear repro steps, cutting critical issues reaching production.</li>
-          <li>Tested 25+ API endpoints in Postman and validated back-end data with SQL.</li>
+          <li>Tested 25+ API endpoints in Postman and validated back-end data with basic SQL.</li>
+          <li>Validated 18+ release builds prior to deployment, ensuring stability with minimal critical post-release defects.</li>
           <li>Validated AI-generated outputs on an AI-powered SaaS product for accuracy and quality.</li>
+          <li>Collaborated daily with developers, product owners and stakeholders across time zones within Agile ceremonies.</li>
+          <li>Maintained QA documentation — test cases, regression suites and release validation reports for 30+ features.</li>
         </ul>
       </div>
       <div class="t-item">
@@ -371,6 +402,8 @@
           <li>Covered regression, integration, performance and compatibility testing across 40+ releases.</li>
           <li>Found and resolved 50+ cross-browser/device issues using BrowserStack.</li>
           <li>Checked UI builds against Figma for pixel-accurate, responsive results.</li>
+          <li>Reviewed product requirements and specs, giving QA feedback that improved development cycle efficiency.</li>
+          <li>Worked with developers and product teams to identify root causes and verify resolutions.</li>
         </ul>
       </div>
       <div class="t-item">
@@ -381,13 +414,23 @@
           <li>Handled technical support and troubleshooting, keeping client satisfaction high.</li>
           <li>Set up Google Tag Manager tracking to sharpen client-side reporting accuracy.</li>
           <li>Configured tracking pixels for Google and Facebook Ads campaigns.</li>
+          <li>Assisted with data extraction and website crawling for business and analytics purposes.</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <section class="section" id="work">
+    <div class="section-tag">03 / Work Samples</div>
+    <h2 class="section-title">See my testing in action</h2>
+    <div class="work-box">
+      <p>Test cases, bug reports, test plans and release validation samples from real projects — kept up to date in one place.</p>
+      <a href="https://drive.google.com/drive/folders/1ZMqw1mO64RNywY728pUViN1euc0C_e0P?usp=drive_link" target="_blank" class="btn btn-primary">Open Work Samples ↗</a>
+    </div>
+  </section>
+
   <section class="section" id="skills">
-    <div class="section-tag">03 / Skills</div>
+    <div class="section-tag">04 / Skills</div>
     <h2 class="section-title">Toolkit</h2>
     <div class="skill-grid">
       <div class="skill-card">
@@ -398,7 +441,16 @@
           <span class="pill">Functional</span>
           <span class="pill">Exploratory</span>
           <span class="pill">Smoke / Sanity</span>
+          <span class="pill">Integration</span>
           <span class="pill">UAT</span>
+          <span class="pill">Confirmation Testing</span>
+          <span class="pill">Ad-hoc Testing</span>
+          <span class="pill">Boundary Value Analysis</span>
+          <span class="pill">Equivalence Partitioning</span>
+          <span class="pill">Black Box Testing</span>
+          <span class="pill">Usability Testing</span>
+          <span class="pill">Compatibility Testing</span>
+          <span class="pill">Performance Testing</span>
           <span class="pill">Mobile Testing</span>
         </div>
       </div>
@@ -406,9 +458,12 @@
         <h3>API &amp; Data</h3>
         <div class="pill-row">
           <span class="pill">Postman</span>
+          <span class="pill">HTTP Methods</span>
           <span class="pill">JSON</span>
           <span class="pill">Status Codes</span>
           <span class="pill">CRUD</span>
+          <span class="pill">Request/Response Validation</span>
+          <span class="pill">Environment &amp; Variables Setup</span>
           <span class="pill">SQL (basic)</span>
         </div>
       </div>
@@ -421,29 +476,48 @@
           <span class="pill">Chrome DevTools</span>
           <span class="pill">Confluence</span>
           <span class="pill">Slack</span>
+          <span class="pill">Excel Reports</span>
+          <span class="pill">Google Tag Manager</span>
         </div>
       </div>
       <div class="skill-card">
         <h3>Process</h3>
         <div class="pill-row">
           <span class="pill">Agile / SDLC</span>
+          <span class="pill">STLC</span>
+          <span class="pill">Risk-Based Testing</span>
           <span class="pill">Test Plans</span>
           <span class="pill">Defect Reporting</span>
           <span class="pill">Traceability Matrix</span>
+        </div>
+      </div>
+      <div class="skill-card" style="grid-column:1 / -1;">
+        <h3>Soft Skills</h3>
+        <div class="pill-row">
+          <span class="pill">Analytical Thinking</span>
+          <span class="pill">Problem Solving</span>
+          <span class="pill">Cross-functional Collaboration</span>
+          <span class="pill">Leadership</span>
+          <span class="pill">Mentoring</span>
+          <span class="pill">Communication</span>
+          <span class="pill">Time Management</span>
+          <span class="pill">Attention to Detail</span>
+          <span class="pill">Adaptability</span>
+          <span class="pill">Remote Team Collaboration</span>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="education">
-    <div class="section-tag">04 / Background</div>
+    <div class="section-tag">05 / Background</div>
     <h2 class="section-title">Education &amp; Awards</h2>
     <div class="ea-grid">
       <div class="ea-card">
         <h3>Education</h3>
         <div class="item">
           <div class="t1">BSc in Computer Science</div>
-          <div class="t2">American International University–Bangladesh (AIUB), 2014–2018</div>
+          <div class="t2">American International University–Bangladesh (AIUB), 2014–2018 · CGPA: 3.33</div>
         </div>
         <div class="item">
           <div class="t1">English — Duolingo English Test</div>
